@@ -47,10 +47,12 @@ CREATE TABLE [Procedimento] (
 )
 
 CREATE TABLE [ProcedimentoMaterial] (
-    [Id] INT NOT NULL IDENTITY(500,1),
+    [ProcedimentoId] INT NOT NULL,
     [MaterialId] INT NOT NULL,
     [Quantidade] NVARCHAR(4) NOT NULL,
     [Custo] DECIMAL(10,2) NOT NULL
+
+    CONSTRAINT PK_ProcedimentoMaterial PRIMARY KEY ([ProcedimentoId], [MaterialId])
 )
 
 CREATE TABLE [ProcedimentoRealizado] (
