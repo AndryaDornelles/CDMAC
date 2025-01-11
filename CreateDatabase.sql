@@ -18,3 +18,6 @@ CREATE TABLE [Material] (
     CONSTRAINT [FK_Material_Fornecedor] FOREIGN KEY ([FornecedorId])
         REFERENCES [Fornecedor]([Id])
 )
+
+ALTER TABLE [Fornecedor]
+    ADD [Nome] VARCHAR(80) NOT NULL
