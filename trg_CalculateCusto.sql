@@ -1,4 +1,4 @@
--- Trigger corrigida para calcular o custo
+-- Trigger para calcular o custo
 CREATE TRIGGER trg_CalculateCusto
 ON ProcedimentoMaterial
 AFTER INSERT, UPDATE
