@@ -2,6 +2,7 @@ CREATE DATABASE [Clinica]
 
 CREATE TABLE [Fornecedor] (
     [Id] INT NOT NULL IDENTITY(200,1),
+    [Nome] VARCHAR(80) NOT NULL,
     [MaterialId] INT NOT NULL
 
     CONSTRAINT [PK_Fornecedor] PRIMARY KEY ([Id]) 
@@ -11,6 +12,7 @@ CREATE TABLE [Material] (
     [Id] INT NOT NULL IDENTITY(100,1),
     [Nome] NVARCHAR(80) NOT NULL,
     [FornecedorId] INT NOT NULL,
+    [Preco] DECIMAL(10,2) NOT NULL,
     [QuantidadeEstoque] INT NOT NULL,
     [QuantidadeNecessaria] INT NOT NULL
 
@@ -30,7 +32,7 @@ CREATE TABLE [Paciente] (
     [Id] UNIQUEIDENTIFIER NOT NULL,
     [Nome] NVARCHAR(120) NOT NULL,
     [Telefone] NVARCHAR(20) NOT NULL,
-    [Convenio] CHAR(2) NOT NULL,
+    [Convenio] NVARCHAR(20) NOT NULL,
     [MedicoId] UNIQUEIDENTIFIER NOT NULL
 
     CONSTRAINT [PK_Paciente] PRIMARY KEY ([Id])
@@ -62,15 +64,17 @@ CREATE TABLE [ProcedimentoRealizado] (
     [PacienteId] UNIQUEIDENTIFIER NOT NULL,
     [MedicoId] UNIQUEIDENTIFIER NOT NULL
 
-    CONSTRAINT [PK_ProcedimentoRealizado] PRIMARY KEY
+    CONSTRAINT [PK_ProcedimentoRealizado] PRIMARY KEY ([Id])
     CONSTRAINT [FK_ProcedimentoRealizado_Paciente] FOREIGN KEY ([PacienteId])
         REFERENCES [Paciente]([Id]),
     CONSTRAINT [FK_ProcedimentoRealizado_Medico] FOREIGN KEY ([MedicoId])
         REFERENCES [Medico]([Id])
 )
 
-ALTER TABLE [Material]
-    ADD [Preco] DECIMAL(10,2) NOT NULL
+CREATE TABLE [Login] (
+    [Usuario] UNIQUEIDENTIFIER NOT NULL,
+    [Senha] NVARCHAR(MAX) NOT NULL
 
-ALTER TABLE [Fornecedor]
-    ADD [Nome] VARCHAR(80) NOT NULL
+    CONSTRAINT [PK_Login] PRIMARY KEY ([Usuario])
+)
+
