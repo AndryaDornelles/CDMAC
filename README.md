@@ -1,3 +1,8 @@
+<p align="center">
+<img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+</p>
+
+
 # **Projeto: Sistema de Gestão para Clínica Médica**  
 Este projeto nasceu da minha experiência como imobilizadora ortopédica, onde sou responsável pela gestão do estoque de materiais e pelo acompanhamento dos procedimentos realizados. O objetivo é criar um sistema que automatize essas tarefas, trazendo mais organização, eficiência e praticidade.
 
