@@ -1,22 +1,25 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CDMAC.Models;
+using Microsoft.Data.SqlClient;
+using Dapper;
 
-namespace BaltaDataAccess
+namespace CDMAC
 {
     class Program
     {
         static void Main(string[] args)
         {
             //String de conexao
-            const string connectionString = "Server=127.0.0.1,1433;Database=Balta;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=true";
+            const string connectionString = "Server=127.0.0.1,1433;Database=Clinica;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=true";
             // using cria um bloco de código que é executado e depois descartado
             using (var connection = new SqlConnection(connectionString))
             {
-                // query faz a consulta no banco de dados em lista de categorias, usando comando sql
-                var categories = connection.Query<Category>("SELECT [Id], [Title] FROM [Category]");
+                connection.Open();
+                // query faz a consulta no banco de dados em lista de materiais, usando comando sql
+                var materiais = connection.Query<Material>("SELECT * FROM Material");
                 // foreach faz um loop em cada categoria
-                foreach (var category in categories)
+                foreach (var material in materiais)
                 {
-                    Console.WriteLine($"{category.Id} - {category.Title}");
+                    Console.WriteLine($"{material.Id} - {material.Nome}");
                 }
             }
         }
