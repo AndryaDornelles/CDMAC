@@ -72,9 +72,9 @@ CREATE TABLE [ProcedimentoRealizado] (
 )
 
 CREATE TABLE [Login] (
-    [Usuario] UNIQUEIDENTIFIER NOT NULL,
+    [Usuario] NVARCHAR(20) UNIQUE,
+    [Email] NVARCHAR(80) UNIQUE NOT NULL,
     [Senha] NVARCHAR(MAX) NOT NULL
 
     CONSTRAINT [PK_Login] PRIMARY KEY ([Usuario])
 )
-

@@ -8,10 +8,6 @@ namespace CDMAC.Models
         public decimal Preco { get; set; }
         public int QuantidadeEstoque { get; set; }
         public int QuantidadeNecessaria { get; set; }
-
-        public Material()
-        {
-        }
     }
 
 

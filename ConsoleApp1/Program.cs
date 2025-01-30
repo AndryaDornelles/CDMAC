@@ -1,6 +1,7 @@
 ﻿using CDMAC.Models;
 using Microsoft.Data.SqlClient;
 using Dapper;
+using System.Runtime.Intrinsics.Arm;
 
 namespace CDMAC
 {
@@ -13,15 +14,29 @@ namespace CDMAC
             // using cria um bloco de código que é executado e depois descartado
             using (var connection = new SqlConnection(connectionString))
             {
-                connection.Open();
-                // query faz a consulta no banco de dados em lista de materiais, usando comando sql
-                var materiais = connection.Query<Material>("SELECT * FROM Material");
-                // foreach faz um loop em cada categoria
-                foreach (var material in materiais)
-                {
-                    Console.WriteLine($"{material.Id} - {material.Nome}");
-                }
+                // InserirUsuario(connection);
+                ListarUsuarios(connection);
             }
+        }
+        static void ListarUsuarios(SqlConnection connection)
+        {
+            var usuarios = connection.Query<Login>("SELECT [Usuario], [Email] FROM [Login]");
+            foreach (var item in usuarios)
+            {
+                Console.WriteLine($"Usuario: {item.Usuario} - Email: {item.Email}");
+            }
+        }
+        static void InserirUsuario(SqlConnection connection)
+        {
+            var usuario = new Login();
+            usuario.Usuario = "andryadornelles";
+            usuario.Email = "andryacds@gmail.com";
+            usuario.Senha = "123456";
+
+            var insertSql = "INSERT INTO [Login] ([Usuario], [Email], [Senha]) VALUES (@Usuario, @Email, @Senha)";
+
+            var rows = connection.Execute(insertSql, usuario);
+            Console.WriteLine($"Linhas afetadas: {rows}");
         }
     }
 }
