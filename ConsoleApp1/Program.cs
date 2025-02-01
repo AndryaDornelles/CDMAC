@@ -9,13 +9,15 @@ namespace CDMAC
     {
         static void Main(string[] args)
         {
-            //String de conexao
+            #region String de conexao
             const string connectionString = "Server=127.0.0.1,1433;Database=Clinica;User ID=sa;Password=1q2w3e4r@#$;TrustServerCertificate=true";
+            #endregion
             // using cria um bloco de código que é executado e depois descartado
             using (var connection = new SqlConnection(connectionString))
             {
-                // InserirUsuario(connection);
+                InserirUsuario(connection);
                 ListarUsuarios(connection);
+                DeletarUsuario(connection);
             }
         }
         static void ListarUsuarios(SqlConnection connection)
@@ -37,6 +39,13 @@ namespace CDMAC
 
             var rows = connection.Execute(insertSql, usuario);
             Console.WriteLine($"Linhas afetadas: {rows}");
+        }
+        static void DeletarUsuario(SqlConnection connection)
+        {
+            var deleteSql = "DELETE FROM [Login] WHERE [Usuario] = @Usuario";
+
+            var rows = connection.Execute(deleteSql, new { Usuario = "andryadornelles" });
+            Console.WriteLine($"Usuários Deletados: {rows}");
         }
     }
 }
