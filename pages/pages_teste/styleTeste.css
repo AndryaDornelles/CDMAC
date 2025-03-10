@@ -16,12 +16,13 @@
 }
 
 #nav_bar {
-    background-color: #57bcff2d !important; 
+    background: radial-gradient(#57BCFF, #3A82B2) !important; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
 }
 
 #btnSair {
-    background-color: var(--color-second) !important;
+    background-color: var(--color-primary) !important;
+    color: var(--color-third);
     border: none;
     border-radius: 0 10px 0 10px;
     padding: 0.2rem 1.2rem;
