@@ -38,11 +38,11 @@ body {
 }
 
 .container {
-    padding: 3rem 4rem 3rem 4rem;
+    padding: 3.5rem 4.5rem;
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 25rem;
+    width: 22rem;
     border-radius: 10px;
     background-color: #57bcff2d;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
@@ -56,19 +56,20 @@ body {
 }
 
 .container__content__input {
-    width: 100%;
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-content: center;
     gap: 10px;
+    width: 100%;
 }
 .container__content__input__inputbox {
     border-radius: 5px;
     border: none;
     padding: 5px 0 5px 5px;
     margin-bottom: 1.8rem;
+    width: 100%;
 }
 .container__content__links {
     display: flex;
@@ -81,12 +82,12 @@ body {
     background-color: var(--color-second);
     border: none;
     border-radius: 0 10px 0 10px;
-    padding: 0.3rem 2rem;
+    padding: 0.3rem;
     cursor: pointer;
     width: 30%;
     align-self: flex-end;
 }
-.container__content__button:hover {
+.container__content__links__button:hover {
     color: var(--color-second);
     background-color: var(--color-third);
 }
