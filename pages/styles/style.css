@@ -16,7 +16,8 @@
 }
 
 body {
-    height: 100vh;
+    min-height: 100vmin;
+    min-width: 100vmin;
     box-sizing: border-box;
     background-color: var(--color-primary);
     color: var(--color-third); 
@@ -27,22 +28,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem 0 0 0;
+    padding: 5vmax 0 0 0;
     margin-bottom: 1rem;
 }
 
-.header__login__logo {
-    width: 100%;
-    height: 92px;
-    flex-shrink: 0;
-}
 
 .container {
-    padding: 3.5rem 4.5rem;
+    padding: 3.5rem 4.5vmax;
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 22rem;
+    max-width: 22rem;
+    margin: 0 auto;
     border-radius: 10px;
     background-color: #57bcff2d;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
@@ -67,7 +64,7 @@ body {
 .container__content__input__inputbox {
     border-radius: 5px;
     border: none;
-    padding: 5px 0 5px 5px;
+    padding: 0.625vmin 0 0.625vmin 0.625vmin;
     margin-bottom: 1.8rem;
     width: 100%;
 }
@@ -77,6 +74,7 @@ body {
     justify-content: space-between;
     width: 100%;    
     font-size: 0.8rem;
+    gap: 1rem;
 }
 .container__content__links__button {
     background-color: var(--color-second);
@@ -85,6 +83,7 @@ body {
     padding: 0.3rem;
     cursor: pointer;
     width: 30%;
+    min-width: 5rem;
     align-self: flex-end;
 }
 .container__content__links__button:hover {
